@@ -7,7 +7,9 @@ let main=async function() {
     initButton.innerText="Start";
     initButton.addEventListener("click", function() {
         let script=async function() {
-            let fileRefs=await window.showOpenFilePicker();
+            let fileRefs=await window.showOpenFilePicker({
+                multiple: true
+            });
             fileRefs.forEach(async function(fileRef) {
                 window.fileRef=fileRef;
                 let fileReadHandle=await fileRef.getFile();
